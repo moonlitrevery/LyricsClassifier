@@ -5,6 +5,7 @@ import os
 
 from pathlib import Path
 from lyrics_classifier.component import LyricsClassifier, find_latest_artifact
+from starlette.responses import RedirectResponse, Response
 
 
 class PredictRequest(BaseModel):
@@ -33,6 +34,18 @@ def _load_model() -> LyricsClassifier:
             raise RuntimeError("Nenhum artefato encontrado. Treine um modelo primeiro.")
         _model = LyricsClassifier.load(latest)
     return _model
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    """Redirect root to interactive docs."""
+    return RedirectResponse(url="/docs")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    """Avoid 404 for favicon; return empty response."""
+    return Response(status_code=204)
 
 
 @app.get("/health")
