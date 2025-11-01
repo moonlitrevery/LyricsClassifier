@@ -1,0 +1,20 @@
+language: pt
+use_lemmatization: true
+remove_stopwords: true
+lowercase: true
+use_embeddings: false
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+ngram_range: [1, 2]
+min_df: 2
+max_df: 0.95
+max_features: 50000
+models:
+  - nb_multinomial
+  - logreg
+  - linear_svm
+  - random_forest
+  - xgboost
+test_size: 0.2
+random_state: 42
+calibrate: true
+export_onnx: false
