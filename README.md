@@ -11,7 +11,7 @@ Projeto completo para classificar letras de músicas em categorias (gênero, hum
 ```
 lyrics-classifier/
   data/
-    sample_lyrics.csv
+    dataset_genero_musical.xlsx
   lyrics_classifier/
     __init__.py
     version.py
@@ -71,15 +71,14 @@ Observação: `sentence-transformers` (embeddings) e `xgboost` podem demorar a i
 
 ## Dataset
 
-- CSV com colunas: `lyrics` (texto) e `label` (classe). Exemplo em `data/sample_lyrics.csv`.
+- Planilha Excel `data/dataset_genero_musical.xlsx` com colunas `musica` (texto) e `genero` (rótulo). Há uma coluna auxiliar `Unnamed: 0` (índice original) que pode ser ignorada. O loader agora aceita CSV, XLS/XLSX e Parquet automaticamente (depende de `openpyxl` para Excel).
 
 ## Treinamento e validação
 
 ```
 # TF-IDF (padrão), hold-out, escolhe melhor por F1-macro
 python scripts/train.py \
-  --dataset data/sample_lyrics.csv \
-  --text-col lyrics --label-col label \
+  --dataset data/dataset_genero_musical.xlsx \
   --language pt \
   --models nb_multinomial,logreg,linear_svm,random_forest,xgboost \
   --test-size 0.2 \
@@ -88,8 +87,7 @@ python scripts/train.py \
 
 # Com embeddings (sentence-transformers + LR)
 python scripts/train.py \
-  --dataset data/sample_lyrics.csv \
-  --text-col lyrics --label-col label \
+  --dataset data/dataset_genero_musical.xlsx \
   --language pt \
   --use-embeddings True \
   --embedding-model sentence-transformers/all-MiniLM-L6-v2 \

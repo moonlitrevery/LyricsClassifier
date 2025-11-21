@@ -4,7 +4,7 @@
 Construir um pipeline de ML para classificar letras de músicas em categorias (gênero, humor/valência, década, tema), com entrega de componente reutilizável (joblib/ONNX) e opção de serviço HTTP (FastAPI). O consumo deve ser possível localmente (artefatos) e remotamente (API), com reprodutibilidade e documentação de design.
 
 ## Metodologia
-- Dados: CSV com `lyrics` e `label`; ingestão validada. Recomendado versionamento (Git LFS/S3) e metadados (hash, data, origem).
+- Dados: planilha XLSX (`data/dataset_genero_musical.xlsx`) com colunas `musica` e `genero`; ingestão validada. Recomendado versionamento (Git LFS/S3) e metadados (hash, data, origem).
 - Pré-processamento: limpeza, normalização, remoção de stopwords, lematização opcional; idioma configurável (`pt`/`en`).
 - Features: TF-IDF (obrigatório) com n-gramas (1–2) e filtros; Embeddings (opcional) via `sentence-transformers`.
 - Modelos: Baseline Naive Bayes (Multinomial/Bernoulli); alternativas: Regressão Logística, Linear SVM (calibrada), Random Forest, XGBoost. Seleção pelo melhor F1-macro em hold-out (opcional k-fold).
@@ -12,8 +12,8 @@ Construir um pipeline de ML para classificar letras de músicas em categorias (g
 - Exportação: `component.joblib` contendo pipeline e metadados (config, classes, VERSION); `metrics.json`, `config.json`, `VERSION`. ONNX opcional quando suportado.
 - Serviço: FastAPI com `/predict`, `/metadata`, `/health`.
 
-## Resultados (Exemplo com `data/sample_lyrics.csv`)
-- Dataset pequeno e apenas demonstrativo; métricas não representam desempenho real. Ao rodar `scripts/train.py`, o melhor modelo e métricas são gravados em `reports/` e `artifacts/`.
+## Resultados (Exemplo com `data/dataset_genero_musical.xlsx`)
+- Dataset demonstrativo (gênero musical) em PT-BR; métricas não representam desempenho real em produção. Ao rodar `scripts/train.py`, o melhor modelo e métricas são gravados em `reports/` e `artifacts/`.
 - Itens gerados:
   - `reports/metrics_<modelo>_<ts>.json` e `reports/confusion_<modelo>_<ts>.png`
   - `artifacts/<modelo>_<ts>_<hash>/component.joblib` e metadados
@@ -48,7 +48,7 @@ Construir um pipeline de ML para classificar letras de músicas em categorias (g
 
 ## Como Reproduzir
 1) Instalar dependências e baixar NLTK (ver README).
-2) Treinar: `python scripts/train.py --dataset data/sample_lyrics.csv --text-col lyrics --label-col label --language pt`
+2) Treinar: `python scripts/train.py --dataset data/dataset_genero_musical.xlsx --language pt`
 3) Predizer local: `python scripts/predict.py --texts "exemplo de letra"`
 4) Subir API: `uvicorn service.app:app --port 8000`; testar `/predict`.
 

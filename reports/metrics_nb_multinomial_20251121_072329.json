@@ -1,0 +1,75 @@
+{
+  "accuracy": 0.8234375,
+  "f1_macro": 0.8263883539610609,
+  "report": {
+    "BOSSA NOVA": {
+      "precision": 0.9469026548672567,
+      "recall": 0.66875,
+      "f1-score": 0.7838827838827839,
+      "support": 160.0
+    },
+    "FUNK": {
+      "precision": 0.927536231884058,
+      "recall": 0.8,
+      "f1-score": 0.8590604026845639,
+      "support": 160.0
+    },
+    "GOSPEL": {
+      "precision": 0.9085365853658537,
+      "recall": 0.93125,
+      "f1-score": 0.9197530864197531,
+      "support": 160.0
+    },
+    "SERTANEJO": {
+      "precision": 0.6355555555555555,
+      "recall": 0.89375,
+      "f1-score": 0.7428571428571428,
+      "support": 160.0
+    },
+    "accuracy": 0.8234375,
+    "macro avg": {
+      "precision": 0.854632756918181,
+      "recall": 0.8234375,
+      "f1-score": 0.8263883539610609,
+      "support": 640.0
+    },
+    "weighted avg": {
+      "precision": 0.8546327569181809,
+      "recall": 0.8234375,
+      "f1-score": 0.826388353961061,
+      "support": 640.0
+    }
+  },
+  "labels": [
+    "BOSSA NOVA",
+    "FUNK",
+    "GOSPEL",
+    "SERTANEJO"
+  ],
+  "confusion": [
+    [
+      107,
+      4,
+      5,
+      44
+    ],
+    [
+      1,
+      128,
+      2,
+      29
+    ],
+    [
+      1,
+      1,
+      149,
+      9
+    ],
+    [
+      4,
+      5,
+      8,
+      143
+    ]
+  ]
+}

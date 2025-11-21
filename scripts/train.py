@@ -13,9 +13,9 @@ from lyrics_classifier.model_trainer import ModelTrainer
 
 def parse_args():
     ap = argparse.ArgumentParser(description="Train lyrics classifier")
-    ap.add_argument("--dataset", required=True, help="Caminho do CSV")
-    ap.add_argument("--text-col", default="lyrics")
-    ap.add_argument("--label-col", default="label")
+    ap.add_argument("--dataset", required=True, help="Caminho do dataset (CSV/XLSX/Parquet)")
+    ap.add_argument("--text-col", default="musica")
+    ap.add_argument("--label-col", default="genero")
     ap.add_argument("--language", default="pt", choices=["pt", "en"]) 
     ap.add_argument("--use-embeddings", type=lambda x: x.lower() == "true", default=False)
     ap.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
