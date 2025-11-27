@@ -2,20 +2,20 @@
 
 ```mermaid
 flowchart LR
-  subgraph Atores
-    DP[Pessoa de Dados]
-    AV[Avaliador(a) de Modelos]
-    APP[Aplicação Consumidora]
-    OPS[Responsável por Entrega/OPS]
-    STG[(Storage/Versionamento)]
+  subgraph Atores["Atores"]
+    DP["Pessoa de Dados"]
+    AV["Avaliador de Modelos"]
+    APP["Aplicação Consumidora"]
+    OPS["Responsável por Entrega/OPS"]
+    STG[("Storage/Versionamento")]
   end
 
-  subgraph Sistema
-    UC1((Ingestão e Versionamento do Corpus))
-    UC2((Treino e Comparação de Modelos))
-    UC3((Predição Local))
-    UC4((Predição via API HTTP))
-    UC5((Publicação de Artefatos))
+  subgraph Sistema["Sistema"]
+    UC1(("Ingestão e Versionamento do Corpus"))
+    UC2(("Treino e Comparação de Modelos"))
+    UC3(("Predição Local"))
+    UC4(("Predição via API HTTP"))
+    UC5(("Publicação de Artefatos"))
   end
 
   DP --> UC1

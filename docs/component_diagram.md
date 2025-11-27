@@ -2,32 +2,32 @@
 
 ```mermaid
 flowchart TB
-  subgraph ModelComponent[Componente de Modelo]
-    ART[(component.joblib)]
-    CFG[[config.json]]
-    VER[[VERSION]]
-    MET[[metrics.json]]
-    ONNX[[model.onnx (opcional)]]
+  subgraph ModelComponent["Componente de Modelo"]
+    ART[("component.joblib")]
+    CFG[["config.json"]]
+    VER[["VERSION"]]
+    MET[["metrics.json"]]
+    ONNX[["model.onnx (opcional)"]]
   end
 
-  subgraph ServiceComponent[Componente de Serviço (API)]
-    API[[FastAPI /predict, /metadata, /health]]
+  subgraph ServiceComponent["Componente de Serviço (API)"]
+    API[["FastAPI /predict, /metadata, /health"]]
   end
 
-  subgraph Client[Consumidores]
-    LIB[Cliente Local (Python package)]
-    HTTP[Cliente HTTP]
+  subgraph Client["Consumidores"]
+    LIB["Cliente Local (Python package)"]
+    HTTP["Cliente HTTP"]
   end
 
-  LIB -- Carrega --> ART
-  API -- Carrega --> ART
-  API -. Lê .-> CFG
-  API -. Lê .-> VER
-  API -. Lê .-> MET
+  LIB -->|"Carrega"| ART
+  API -->|"Carrega"| ART
+  API -.->|"Lê"| CFG
+  API -.->|"Lê"| VER
+  API -.->|"Lê"| MET
 
-  LIB -- Funções locais --> |predict(texts), topk(k)| ART
-  HTTP -- JSON --> |POST /predict {texts, top_k}| API
-  API -- JSON --> |200 {predictions, topk, classes, version}| HTTP
+  LIB -->|"predict(texts), topk(k)"| ART
+  HTTP -->|"POST /predict"| API
+  API -->|"JSON Response"| HTTP
 ```
 
 Interfaces e formatos principais:

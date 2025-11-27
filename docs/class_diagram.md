@@ -10,7 +10,7 @@ classDiagram
       -lowercase: bool
       -remove_stopwords: bool
       -use_lemmatization: bool
-      +transform(texts): List~str~
+      +transform(texts) List[str]
     }
     class FeatureExtractor{
     }
@@ -23,7 +23,7 @@ classDiagram
       +transform(texts)
     }
     class ModelTrainer{
-      +train(X_texts, y_labels): TrainedModel
+      +train(X_texts, y_labels) TrainedModel
     }
     class Evaluator{
       +evaluate_predictions(y_true, y_pred)
@@ -31,9 +31,9 @@ classDiagram
     }
     class LyricsClassifier{
       +load(artifact_dir)
-      +predict(texts): List~str~
-      +predict_proba(texts): List~List~float~~
-      +topk(texts, k): List~List~{label,prob}~
+      +predict(texts) List[str]
+      +predict_proba(texts) List[List[float]]
+      +topk(texts, k) List[List[dict]]
     }
     class MetricsReport{
       +to_json()
