@@ -16,10 +16,10 @@
 
 Este é um projeto acadêmico desenvolvido por:
 
-- **Jean Victor Yoshida Lima**
-- **João Pedro Cabrera Rodrigues Penna**
-- **João Vitor Gozzo Bruschi**
-- **Nícolas Justo Melão**
+**Jean Victor Yoshida Lima**
+**João Pedro Cabrera Rodrigues Penna**
+**João Vitor Gozzo Bruschi**
+**Nícolas Justo Melão**
 
 </div>
 
