@@ -14,6 +14,13 @@
 
 [Características](#-características) • [Instalação](#-instalação) • [Uso](#-como-usar) • [Documentação](#-documentação) • [Arquitetura](#-arquitetura-do-projeto)
 
+Este é um projeto acadêmico desenvolvido por:
+
+- **Jean Victor Yoshida Lima**
+- **João Pedro Cabrera Rodrigues Penna**
+- **João Vitor Gozzo Bruschi**
+- **Nícolas Justo Melão**
+
 </div>
 
 ---
@@ -575,25 +582,6 @@ pip install sentence-transformers
 python scripts/download_nltk.py
 ```
 
----
-
-## 🤝 Contribuindo
-
-Este é um projeto acadêmico desenvolvido por:
-
-- **Jean Victor Yoshida Lima**
-- **João Pedro Cabrera Rodrigues Penna**
-- **João Vitor Gozzo Bruschi**
-- **Nícolas Justo Melão**
-
-### Melhorias Futuras
-
-- [ ] Implementar k-fold cross-validation
-- [ ] Adicionar suporte a redes neurais (BiLSTM/Transformer)
-- [ ] Melhorar exportação ONNX (pipeline completo)
-- [ ] Adicionar tuning de hiperparâmetros (Optuna)
-- [ ] Implementar class weights para datasets desbalanceados
-- [ ] Adicionar testes unitários e de integração
 
 ---
 
